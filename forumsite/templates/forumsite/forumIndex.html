@@ -1,0 +1,46 @@
+{% extends 'forumsite/base.html' %}
+{% load staticfiles %}
+
+
+{% block linkstyle %}
+    <link href="{% static 'forumsite/css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block maincontent %}
+    <div class="col-sm-10 threadlist-container">
+        <div class="postlist">
+            <ul class="postthreads">
+                <li>
+                    <div class="thread">
+                        <div class="thread-container">
+                            <a href="#" class="author">
+                                <img src="{% static 'forumsite/images/avastar.jpg'%}" class="img-circle avatar">
+                            </a>
+                            <a href="#" class="thread-item">
+                                <h3 class="thread-title">在新加坡做面试官的经历(Interviewer Experience for UI/UX</h3>
+                                <ul class="thread-info">
+                                    <li class="thread-tags">
+                                        <span class="label label-primary thread-label">Installation</span>
+                                        <span class="label label-default thread-label">Tutorial</span>
+                                    </li>
+                                    <li class="threadpost-info">
+                                        <span class="username">Disemboltura</span>
+                                        <time>two days ago</time>
+                                    </li>
+                                </ul>
+                            </a>
+                            <span class="comment-container">
+                                <span class="glyphicon glyphicon-comment"></span>
+                                <span class="comment-count">200</span>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block includeScript %}
+    <script src="{% static 'forumsite/js/index.js'%}"></script>
+{% endblock %}

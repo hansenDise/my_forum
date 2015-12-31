@@ -1,0 +1,94 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edget">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <title>My Forum</title>
+        
+        <!--bootstrap-->
+        <link href="{% static 'forumsite/css/bootstrap.min.css' %}" rel="stylesheet">
+        
+        {% block linkstyle %} {% endblock %}
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navibar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'forumsite/images/images.png' %}" alt="site brand" height="27">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navibar" >
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">关于</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right login-register">
+                        <li><a href="#">登陆</a></li>
+                        <li><a href="#">注册</a></li>
+                    </ul>
+                    <ul class="navbar-right search">
+                        <li>
+                            <div class="search-container">
+                                <span class="glyphicon glyphicon-search"></span>
+                                <input type="text" class="search-input" placeholder="搜索" >
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <ul class="category text-center">
+                        <li class="cate-li">                     
+                            <a href="/threads" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>所有</a>
+                        </li>
+                        <li class="cate-li">
+                            <a href="/threads/euquip" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>装备</a>
+                        </li>
+                        <li class="cate-li">
+                            <a href="/threads/language" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>语言</a>
+                        </li>
+                        <li class="cate-li">    
+                            <a href="/threads/qa" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>问答</a>
+                        </li>
+                        <li class="cate-li">
+                            <a href="/threads/career" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>生涯</a>
+                        </li>
+                        <li class="cate-li">
+                            <a href="/threads/girls" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>妹子</a>
+                        </li>
+                        <li class="cate-li">
+                            <a href="/threads/boys" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>猴子</a>
+                        </li>
+                    </ul>
+                </div>
+                {% block maincontent %} {% endblock %}
+            </div>
+        </div>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{% static 'forumsite/js/jquery-1.11.3.js'%}"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        {% block includeScript %}   {% endblock %}
+    </body>
+</html>
