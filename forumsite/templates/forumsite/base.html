@@ -20,8 +20,24 @@
         <![endif]-->
         
         <style>
-         
-        </style>
+            .userhead {
+                width:24px;
+                height: 24px;
+            }
+            .btn-userinfo {
+                border:none;
+                background-color:#f8f8f8;
+                margin-top:5px;
+            }
+            .btn-userinfo:focus {
+                background-color: #f8f8f8;
+            }
+            .usermenu {
+                border-radius: 0;
+                box-shadow: 0 2px 6px rgba(0,0,0,35);
+                background-color: #f8f8f8;
+            }
+            </style>
         
     </head>
     
@@ -106,8 +122,23 @@
                         <li><a href="#">关于</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right login-register">
+                        {% if 1 %}
+                        <li>
+                            <button class="btn btn-default btn-userinfo dropdown-toggle" data-toggle="dropdown">
+                                <img src="{% static 'forumsite/images/avastar.jpg'%}" class="img-circle userhead">
+                                <span>Disemboltura</span>    
+                            </button>
+                            <ul class="dropdown-menu usermenu">
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">HTML</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
                         <li><a href="#" data-toggle="modal" data-target="#dialog-login">登陆</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#dialog-register">注册</a></li>
+                        {% endif %}
                     </ul>
                     <ul class="navbar-right search">
                         <li>
