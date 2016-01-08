@@ -6,20 +6,14 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
-    if not request.user.is_authenticated():
-        print 'not login'
-    else:
-        print 'already login'
     return render(request,'forumsite/forumIndex.html')
 
 
 def thread(request,threadid):
-    print 'threadid is :', threadid
     return render(request,'forumsite/thread.html')
 
 
 def login(request):
-    print 'username =', request.POST['useraccount'] , ' password = ', request.POST['password']
     user = authenticate(username=request.POST['useraccount'],password=request.POST['password'])
     if user is not None:
         if user.is_active:
@@ -39,14 +33,10 @@ def register(request):
 
 
 def logout_view(request):
-    print '******* in logout*************'
     if request.user.is_authenticated():
-        print 'authenticated'
         logout(request)
-        return redirect('/')
-    else:
-        print 'not authen.'
-        return redirect('/')
+    
+    return redirect('/')
         
 
 @login_required(login_url='/login/')
