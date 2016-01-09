@@ -18,7 +18,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        
+        <link href="{% static 'forumsite/css/tag.css' %}" rel="stylesheet">
         <style>
             .userhead {
                 width:24px;
@@ -39,6 +39,10 @@
             }
             .btn-postthread {
                 padding:3px;
+            }
+            .category-top:hover {
+                text-decoration: none;
+                color:coral;                
             }
             </style>
         
@@ -164,25 +168,28 @@
                 <div class="col-sm-2">
                     <ul class="category text-center">
                         <li class="cate-li">                     
-                            <a href="/threads" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>所有</a>
+                            <a href="/threads" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-all"></span>所有</a>
                         </li>
                         <li class="cate-li">
-                            <a href="/threads/euquip" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>装备</a>
+                            <a href="/threads/euquip" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-equp"></span>装备</a>
                         </li>
                         <li class="cate-li">
-                            <a href="/threads/language" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>语言</a>
+                            <a href="/threads/language" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-language"></span>语言</a>
                         </li>
                         <li class="cate-li">    
-                            <a href="/threads/qa" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>问答</a>
+                            <a href="/threads/qa" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-aq"></span>问答</a>
                         </li>
                         <li class="cate-li">
-                            <a href="/threads/career" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>生涯</a>
+                            <a href="/threads/career" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-career"></span>生涯</a>
                         </li>
                         <li class="cate-li">
-                            <a href="/threads/girls" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>妹子</a>
+                            <a href="/threads/girls" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-girl"></span>妹子</a>
                         </li>
                         <li class="cate-li">
-                            <a href="/threads/boys" class="category-top"><span class="glyphicon glyphicon-tag category-tag"></span>猴子</a>
+                            <a href="/threads/boys" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-boy"></span>猴子</a>
+                        </li>
+                        <li class="cate-li">
+                            <a href="/threads/others" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-other"></span>其他</a>
                         </li>
                     </ul>
                 </div>
