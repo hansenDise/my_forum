@@ -1,0 +1,63 @@
+body {
+    height: 100%;
+    padding-top: 70px;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    line-height: 1.5;
+}
+ul {
+    list-style-type: none;
+}
+.search-container {
+    margin-top:12px;
+    padding-right:20px;
+    border-radius: 5px;
+    width:200px;
+    -webkit-transition:all 0.6s;
+    -moz-transition:all 0.6s;
+    -o-transition:all 0.6s;
+    transition:all 0.6s; 
+}
+.search-container:hover {
+    padding-top:1px;
+    width:400px;
+    border-radius: 5px;
+    border: 2px solid #6e01e2;
+}
+.glyphicon-search {
+    margin-left:3px;
+}
+.search-input {
+    border:0;
+    outline: none;
+    width: 100%;
+    margin-right:-20px;
+    background-color: #f8f8f8;
+}
+.login-register {
+    margin-left:0;
+}
+.userhead {
+     width:24px;
+     height: 24px;
+ }
+ .btn-userinfo {
+     border:none;
+     background-color:#f8f8f8;
+     margin-top:5px;
+ }
+ .btn-userinfo:focus {
+     background-color: #f8f8f8;
+ }
+ .usermenu {
+     border-radius: 0;
+     box-shadow: 0 2px 6px rgba(0,0,0,35);
+     background-color: #f8f8f8;
+ }
+ .btn-postthread {
+     padding:3px;
+ }
+ .category-top:hover {
+     text-decoration: none;
+     color:coral;                
+ }
