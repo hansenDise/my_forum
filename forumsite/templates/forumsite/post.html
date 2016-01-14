@@ -2,13 +2,46 @@
 {% load staticfiles %}
 {% block linkstyle %}
     <link href="{% static 'forumsite/css/post.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'forumsite/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'forumsite/css/editor.css' %}" rel="stylesheet">
+    
+
 {% endblock %}
 {% block maincontent %}
     <div class="col-sm-8">
+        <textarea id="txtEditor"></textarea>
+        
+        <button type="button" class="btn btn-warning" onclick="gettext()"> 提交</button>
+        
     </div>
     <div class="col-sm-2">
     </div>
 {% endblock %}
 {% block includeScript %}
+    <script src="{% static 'forumsite/js/editor.js' %}"></script>
 
+    <script>
+        $(document).ready(function(){
+            var editor = $("#txtEditor").Editor();
+               editor('createMenuItem', {"text": "TouchGlasses", //Text replaces icon if its not available
+                              "icon":"fa fa-glass", //This is a Font-Awesome Icon 
+                              "tooltip": "Touch Glasses",
+                              "custom": function(button, parameters){ 
+                                            //Your Custom Function.
+                                          alert("Cheers!!!");
+                                        },
+                              "params": {'option1':"value1"} //Any custom parameters you want to pass
+                                                               //to your custom function.
+                });
+        });
+        
+        function gettext(){    
+ 
+            var text = $("#txtEditor").Editor("getText");
+            alert(text);
+        }
+    
+        
+    </script>
 {% endblock %}
