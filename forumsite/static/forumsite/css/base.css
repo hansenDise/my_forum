@@ -57,6 +57,20 @@ ul {
  .btn-postthread {
      padding:3px;
  }
+.category {
+    padding:0;
+}
+.category-tag {
+    padding-right:7px;
+    font-size:17px;
+}
+a.category-top {
+    text-decoration: none;
+}
+.cate-li {
+    margin: 10px 15px;
+    padding: 5px 5px;
+}
  .category-top:hover {
      text-decoration: none;
      color:coral;                

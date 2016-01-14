@@ -66,3 +66,8 @@ def logout_view(request):
 @login_required(login_url='/login/')
 def login_require(request):
     return HttpResponse("congrautuations , you have logined.")
+
+
+
+def committhreads(request):
+    return render(request,'forumsite/post.html')
