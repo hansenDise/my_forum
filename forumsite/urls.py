@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^threads/(?P<threadid>\w{7})$',views.thread),
     url(r'^login_require/$',views.login_require),
     url(r'^committhreads/$',views.committhreads),
+    url(r'^commit/$',views.commit_thread),
 ]

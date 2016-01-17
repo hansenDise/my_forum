@@ -71,3 +71,9 @@ def login_require(request):
 
 def committhreads(request):
     return render(request,'forumsite/post.html')
+
+def commit_thread(request):
+    content = ''
+    for ke in request.POST:
+        content += request.POST[ke]
+    return HttpResponse(content)
