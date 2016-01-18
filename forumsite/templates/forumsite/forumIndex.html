@@ -35,6 +35,7 @@
                             </span>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-warning" onclick="testdataattr()" >点击测试data-target属性</button>
                 </li>
             </ul>
         </div>
@@ -42,5 +43,10 @@
 {% endblock %}
 
 {% block includeScript %}
+    <script>
+        function testdataattr(){
+            $("#dialog-login").modal();
+        }
+    </script>
     <script src="{% static 'forumsite/js/index.js'%}"></script>
 {% endblock %}
