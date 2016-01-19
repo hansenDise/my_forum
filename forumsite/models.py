@@ -1,23 +1,45 @@
 from django.db import models
+from django.contrib.auth.models import User as Auth_User
+import datetime
 
 # Create your models here.
 
+class Category(models.Model):
+    categoryid = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    
+    def __unicode__(self):
+        return self.name
+    
+    class Meta():
+        db_table = 'Category'
+
 class Thread(models.Model):
     threadid = models.AutoField(primary_key=True)
-    userid = models.IntegerField() 
-    title = models.CharField(max_length=200)
+    categoryid = models.ForeignKey(Category,db_column='categoryid')
+    userid = models.ForeignKey(Auth_User,db_column ='userid')
+    title = models.CharField(max_length=300)
     content = models.TextField()
-    posttime = models.DateTimeField()
-    commentcounts = models.IntegerField()
-    default_test = models.IntegerField(default=851)
+    pushtime = models.DateTimeField(default=datetime.datetime.now())
+    commentsCount = models.IntegerField(default=0)
     
+    def __unicode__(self):
+        return self.title
+    
+    class Meta():
+        db_table = 'Thread'
+        ordering = ['-pushtime']
     
 class Comment(models.Model):
     commentid = models.AutoField(primary_key=True)
-    userid = models.IntegerField()
+    userid = models.ForeignKey(Auth_User,db_column='userid')
     threadid = models.ForeignKey(Thread,db_column='threadid')
     content = models.TextField()
-    commenttime = models.DateTimeField()
-    targetuserid = models.IntegerField()
-    isread = models.BooleanField()       
+    pushtime = models.DateTimeField(default=datetime.datetime.now())
     
+    def __unicode__(self):
+        return 'user:' + str(self.userid)
+    
+    class Meta():
+        db_table = 'Comment'
+        ordering = ['pushtime']

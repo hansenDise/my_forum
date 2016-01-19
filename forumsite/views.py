@@ -61,12 +61,10 @@ def logout_view(request):
     response.delete_cookie('user')
     
     return response
-        
 
-@login_required(login_url='/login/')
-def login_require(request):
-    return HttpResponse("congrautuations , you have logined.")
-
+#@login_required(login_url='/login/')
+#def login_require(request):
+#    return HttpResponse("congrautuations , you have logined.")
 
 
 def committhreads(request):
