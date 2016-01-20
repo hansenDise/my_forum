@@ -62,7 +62,7 @@ def logout_view(request):
     response = render(request,'forumsite/forumIndex.html')
     response.delete_cookie('user')
     
-    return response
+    return redirect('/')
 
 #@login_required(login_url='/login/')
 #def login_require(request):
