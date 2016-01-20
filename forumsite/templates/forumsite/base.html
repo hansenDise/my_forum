@@ -105,16 +105,17 @@
                                 <img src="{% static 'forumsite/images/avastar.jpg'%}" class="img-circle userhead">
                                 <span>{{ user.username }}</span>
                             </button>
-                            <button type="button" class="btn btn-warning btn-postthread btn-xs">
-                                <span class="glyphicon glyphicon-edit"></span>
-                                <span> <b>发帖</b></span>
-                            </button>
                             <ul class="dropdown-menu usermenu">
                                 <li><a href="#">HTML</a></li>
                                 <li><a href="#">HTML</a></li>
                                 <li><a href="#">HTML</a></li>
                                 <li><a href="/logout">退出</a></li>
                             </ul>
+                            <button type="button" class="btn btn-warning btn-postthread btn-xs">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                <span> <b>发帖</b></span>
+                            </button>
+                            
                         </li>
                         {% else %}
                         <li><a href="#" data-toggle="modal" data-target="#dialog-login">登陆</a></li>
@@ -155,6 +156,7 @@
         <script src="{% static 'forumsite/js/jquery-2.2.0.min.js'%}"></script>
         <script src="{% static 'forumsite/js/bootstrap.min.js' %}"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{% static 'forumsite/js/base.js'%}"></script>
         {% block includeScript %}   {% endblock %}
     </body>
 </html>

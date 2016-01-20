@@ -17,7 +17,7 @@
                             <a href="#" class="author">
                                 <img src="{% static 'forumsite/images/avastar.jpg'%}" class="img-circle avatar">
                             </a>
-                            <a href="/{{thread.categoryid.nameEN}}/{{ thread.hashcode }}" class="thread-item">
+                            <a href="/threads/{{thread.categoryid.nameEN}}/{{ thread.hashcode }}" class="thread-item">
                                 <h3 class="thread-title">{{ thread.title }}</h3>
                                 <ul class="thread-info">
                                     <li class="thread-tags">
@@ -49,5 +49,5 @@
             $("#dialog-login").modal();
         }
     </script>
-    <script src="{% static 'forumsite/js/index.js'%}"></script>
+    
 {% endblock %}

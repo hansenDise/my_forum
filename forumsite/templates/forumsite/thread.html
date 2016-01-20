@@ -16,20 +16,20 @@
                                 <div class="postauthor">
                                     <h3>
                                         <img src="{% static 'forumsite/images/avastar.jpg' %}" class="avatar img-circle">
-                                        <span class="authorname">Luceos</span>
+                                        <span class="authorname">{{thread.userid.username}}</span>
                                     </h3>
                                 </div>
                             </li>
                             <li class="postitem-meta">
                                 <div class="postmeta">
-                                    <time>2016-01-04 09:46</time>
+                                    <time>{{ thread.pushtime }}</time>
                                 </div>
                             </li>
                         </ul>
                     </header>
                     <div class="post-body">
-                        <h1>International community, Flarum in your language</h1>
-                        <p>In collaboration with some community members i've set up an portal for the international support. these can be found when visiting.<a href="#">gitter</a> and we'll gladdly arrange this for you . please note a language extension must be available.</p>
+                        <h1>{{thread.title}}</h1>
+                        <p>{{ thread.content }}</p>
                     </div>
                     <aside class="post-actions">
                         <ul>
@@ -48,7 +48,7 @@
                                     <a href="#">
                                         <span class="glyphicon glyphicon-thumbs-up"></span>
                                     </a>
-                                    <span class="like-counts">10</span>
+                                    <span class="like-counts">{{ thread.commentsCount }}</span>
                                 </div>
                             </li>
                         </ul>

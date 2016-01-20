@@ -104,11 +104,15 @@ def commit_thread(request):
         return HttpResponse("you are not login. please login.")
 
 def threadsAll(request):
-    return HttpResponse("All")
+    return redirect('/')
 
 def threadCate(request,threadType):
-    
-    return HttpResponse("threadType")
+    categories = Category.objects.all()
+    threads = Thread.objects.filter(categoryid=Category.objects.get(nameEN=threadType))
+    return render(request,'forumsite/forumIndex_test.html',{'threads':threads,'categories':categories})
 
 def getThread(request,threadType,threadid):
-    return HttpResponse("threadid")
+    categories = Category.objects.all()
+    thread = Thread.objects.get(hashcode=threadid)
+    return render(request,'forumsite/thread.html',{'thread':thread,'categories':categories})
+    
