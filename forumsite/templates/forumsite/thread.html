@@ -29,7 +29,7 @@
                     </header>
                     <div class="post-body">
                         <h1>{{thread.title}}</h1>
-                        <p>{{ thread.content }}</p>
+                        {{ thread.content | safe }}
                     </div>
                     <aside class="post-actions">
                         <ul>

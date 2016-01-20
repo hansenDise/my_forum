@@ -95,8 +95,8 @@ def commit_thread(request):
                 thread.save()
 
                 # return to this thread page
-                return HttpResponse("post success!")
-        
+                return redirect('/')
+                
         except Exception as e:
             return HttpResponse(e)
     else:
