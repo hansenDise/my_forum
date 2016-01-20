@@ -6,10 +6,11 @@ import datetime
 
 class Category(models.Model):
     categoryid = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
+    nameCN = models.CharField(max_length=50)
+    nameEN = models.CharField(max_length=50)
     
     def __unicode__(self):
-        return self.name
+        return self.nameCN
     
     class Meta():
         db_table = 'Category'
@@ -22,6 +23,7 @@ class Thread(models.Model):
     content = models.TextField()
     pushtime = models.DateTimeField(default=datetime.datetime.now())
     commentsCount = models.IntegerField(default=0)
+    hashcode = models.CharField(max_length=7)
     
     def __unicode__(self):
         return self.title

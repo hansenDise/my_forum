@@ -94,9 +94,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navibar" >
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="#">首页</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">关于</a></li>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/about">关于</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right login-register">
                         {% if user.is_authenticated %}
@@ -140,27 +140,11 @@
                         <li class="cate-li">                     
                             <a href="/threads" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-all"></span>所有</a>
                         </li>
+                        {% for cate in categories %}
                         <li class="cate-li">
-                            <a href="/threads/euquip" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-equp"></span>装备</a>
+                            <a href="/threads/{{ cate.nameEN }}" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-{{cate.nameEN}}"></span>{{ cate.nameCN }}</a>
                         </li>
-                        <li class="cate-li">
-                            <a href="/threads/language" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-language"></span>语言</a>
-                        </li>
-                        <li class="cate-li">    
-                            <a href="/threads/qa" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-aq"></span>问答</a>
-                        </li>
-                        <li class="cate-li">
-                            <a href="/threads/career" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-career"></span>生涯</a>
-                        </li>
-                        <li class="cate-li">
-                            <a href="/threads/girls" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-girl"></span>妹子</a>
-                        </li>
-                        <li class="cate-li">
-                            <a href="/threads/boys" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-boy"></span>猴子</a>
-                        </li>
-                        <li class="cate-li">
-                            <a href="/threads/others" class="category-top"><span class="glyphicon glyphicon-stop category-tag tag-other"></span>其他</a>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 {% block maincontent %} {% endblock %}

@@ -4,10 +4,15 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate,logout,login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+import hashlib
+import datetime
+from forumsite.models import Category,Thread,Comment
 # Create your views here.
 
 def index(request):
-    return render(request,'forumsite/forumIndex.html')
+    threads = Thread.objects.all()[0:19]
+    categories = Category.objects.all()
+    return render(request,'forumsite/forumIndex_test.html',{'threads':threads,'categories':categories})
 
 
 def thread(request,threadid):
@@ -50,9 +55,6 @@ def register(request):
         auth_login(request,_tempUser)
         return redirect('/')
     
-    
-    
-
 
 def logout_view(request):
     if request.user.is_authenticated():
@@ -68,10 +70,45 @@ def logout_view(request):
 
 
 def committhreads(request):
-    return render(request,'forumsite/post.html')
+    categories = Category.objects.all()
+    return render(request,'forumsite/post.html',{'categories':categories})
 
 def commit_thread(request):
-    content = ''
-    for ke in request.POST:
-        content += request.POST[ke]
-    return HttpResponse(content)
+    if request.user.is_authenticated():
+        try:
+            user = User.objects.get(username=request.user.username)
+            if user is None:
+                # return Error Page.
+                return HttpResponse("Error: user does not exists.")
+            else:
+                form_title = request.POST['title']
+                form_content = request.POST['content']
+                form_category = request.POST['category']    
+                category = Category.objects.get(categoryid=form_category)
+                
+                hashobj = hashlib.sha1()
+                encodestr = user.username + str(datetime.datetime.now())
+                hashobj.update(encodestr)
+                hashcode = hashobj.hexdigest()[0:7]
+                
+                thread = Thread(categoryid=category,title=form_title,content=form_content,userid=user,hashcode=hashcode)
+                thread.save()
+
+                # return to this thread page
+                return HttpResponse("post success!")
+        
+        except Exception as e:
+            return HttpResponse(e)
+    else:
+        # return user not login page.
+        return HttpResponse("you are not login. please login.")
+
+def threadsAll(request):
+    return HttpResponse("All")
+
+def threadCate(request,threadType):
+    
+    return HttpResponse("threadType")
+
+def getThread(request,threadType,threadid):
+    return HttpResponse("threadid")

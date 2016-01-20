@@ -1,13 +1,13 @@
 .tag-all {          
-    color:darkslategrey;
+    color:darkslategray;
 }
-.tag-equp {
+.tag-equipment {
     color:blueviolet;
 }
 .tag-language {
     color:cadetblue;
 }
-.tag-aq {
+.tag-question {
     color:chocolate;
 }
 .tag-career {
@@ -19,6 +19,27 @@
 .tag-boy {
     color:dodgerblue;
 }
-.tag-other {
-    color:dimgray;
+.tag-others {
+    color: dimgray;
+}
+.tag-equipment-bk {
+    background-color:blueviolet;
+}
+.tag-language-bk {
+    background-color:cadetblue;
+}
+.tag-question-bk {
+    background-color:chocolate;
+}
+.tag-career-bk {
+    background-color:cornflowerblue;
+}
+.tag-girl-bk {
+    background-color:pink;
+}
+.tag-boy-bk {
+    background-color:dodgerblue;
+}
+.tag-others-bk {
+    background-color:dimgray;
 }

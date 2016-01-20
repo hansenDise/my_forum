@@ -16,8 +16,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('catetoryid', models.AutoField(serialize=False, primary_key=True)),
-                ('name', models.CharField(max_length=50)),
+                ('categoryid', models.AutoField(serialize=False, primary_key=True)),
+                ('nameCN', models.CharField(max_length=50)),
+                ('nameEN', models.CharField(max_length=50)),
             ],
             options={
                 'db_table': 'Category',
@@ -28,7 +29,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('commentid', models.AutoField(serialize=False, primary_key=True)),
                 ('content', models.TextField()),
-                ('pushtime', models.DateField(default=datetime.datetime(2016, 1, 19, 9, 48, 59, 904000))),
+                ('pushtime', models.DateTimeField(default=datetime.datetime(2016, 1, 20, 14, 58, 1, 199000))),
             ],
             options={
                 'ordering': ['pushtime'],
@@ -41,8 +42,9 @@ class Migration(migrations.Migration):
                 ('threadid', models.AutoField(serialize=False, primary_key=True)),
                 ('title', models.CharField(max_length=300)),
                 ('content', models.TextField()),
-                ('pushtime', models.DateTimeField(default=datetime.datetime(2016, 1, 19, 9, 48, 59, 903000))),
+                ('pushtime', models.DateTimeField(default=datetime.datetime(2016, 1, 20, 14, 58, 1, 198000))),
                 ('commentsCount', models.IntegerField(default=0)),
+                ('hashcode', models.CharField(max_length=7)),
                 ('categoryid', models.ForeignKey(to='forumsite.Category', db_column=b'categoryid')),
                 ('userid', models.ForeignKey(to=settings.AUTH_USER_MODEL, db_column=b'userid')),
             ],
