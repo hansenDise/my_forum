@@ -14,6 +14,7 @@
                         <ul>
                             <li class="postitem-user">
                                 <div class="postauthor">
+                                    <h1>{{thread.title}}</h1>
                                     <h3>
                                         <img src="{% static 'forumsite/images/avastar.jpg' %}" class="avatar img-circle">
                                         <span class="authorname">{{thread.userid.username}}</span>
@@ -28,7 +29,7 @@
                         </ul>
                     </header>
                     <div class="post-body">
-                        <h1>{{thread.title}}</h1>
+                        
                         {{ thread.content | safe }}
                     </div>
                     <aside class="post-actions">

@@ -1,11 +1,14 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 
 from django.contrib.auth import authenticate,logout,login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import hashlib
 import datetime
+
+from django.core.exceptions import ObjectDoesNotExist
+
 from forumsite.models import Category,Thread,Comment
 # Create your views here.
 
@@ -98,7 +101,7 @@ def commit_thread(request):
                 return redirect('/')
                 
         except Exception as e:
-            return HttpResponse(e)
+            return HttpResponse(e.args + e.mro)
     else:
         # return user not login page.
         return HttpResponse("you are not login. please login.")
@@ -116,3 +119,17 @@ def getThread(request,threadType,threadid):
     thread = Thread.objects.get(hashcode=threadid)
     return render(request,'forumsite/thread.html',{'thread':thread,'categories':categories})
     
+
+def notfound(request):
+    raise Http404("Page Not Found...")
+    
+def checkusername(request):
+    ret = 0
+    try:
+        uname = request.GET['username']
+        user = User.objects.get(username=uname)
+        if user is not None:
+            ret = 1
+    except ObjectDoesNotExist:
+        pass
+    return HttpResponse(str(ret))

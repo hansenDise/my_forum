@@ -15,6 +15,9 @@ urlpatterns = [
     url(r'^threads/(?P<threadType>equipment|language|question|career|girl|boy|others)/$',views.threadCate),
     url(r'^threads/(?P<threadType>equipment|language|question|career|girl|boy|others)/(?P<threadid>\w{7})/$',views.getThread),
     
+    url(r'^notfound/$',views.notfound),
+    url(r'^check/username/$',views.checkusername),
+    
 ]
 
 #threads = [
