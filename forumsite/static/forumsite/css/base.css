@@ -75,3 +75,7 @@ a.category-top {
      text-decoration: none;
      color:coral;                
  }
+
+.register-login-warning {
+    border:solid 2px brown;
+}

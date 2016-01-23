@@ -15,21 +15,20 @@
                             <li class="postitem-user">
                                 <div class="postauthor">
                                     <h1>{{thread.title}}</h1>
-                                    <h3>
-                                        <img src="{% static 'forumsite/images/avastar.jpg' %}" class="avatar img-circle">
+                                    <img src="{% static 'forumsite/images/avastar.jpg' %}" class="avatar img-circle author-img">
+                                    <h3 class="thread-userinfo">
                                         <span class="authorname">{{thread.userid.username}}</span>
                                     </h3>
                                 </div>
                             </li>
                             <li class="postitem-meta">
                                 <div class="postmeta">
-                                    <time>{{ thread.pushtime }}</time>
+                                    <time>{{ thread.pushtime | date:"Y-m-d H:i:s" }}</time>
                                 </div>
                             </li>
                         </ul>
                     </header>
                     <div class="post-body">
-                        
                         {{ thread.content | safe }}
                     </div>
                     <aside class="post-actions">

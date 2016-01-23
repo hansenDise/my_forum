@@ -95,3 +95,13 @@
     height: 500px;
     margin-top: 20px;
 }
+.thread-userinfo {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.author-img {
+    margin-top:-26px;
+}
+.postauthor h1 {
+    margin-bottom: 0;
+}

@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="threadpost-info">
                                         <span class="username">{{ thread.userid.username }}</span>
-                                        <time>{{ thread.pushtime }}</time>
+                                        <time>{{ thread.pushtime | date:"Y-m-d H:i:s" }}</time>
                                     </li>
                                 </ul>
                             </a>

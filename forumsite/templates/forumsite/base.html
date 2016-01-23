@@ -39,7 +39,7 @@
                                 <input type="password" class="form-control" id="pwd" name="password" placeholder="密码">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-warning form-control">登陆</button>
+                                <button type="button" class="btn btn-warning form-control">登陆</button>
                             </div>
                         </form>
                     </div>
@@ -59,7 +59,7 @@
                         <h5>注册</h5>
                     </div>
                     <div class="modal-body">
-                        <form role="form" action="/register/" method="post">
+                        <form role="form" action="/register/" method="post" id="form-register">
                             {% csrf_token %}
                             <div class="alert alert-info" role="alert" id="info-register">注册账号</div>
                             <div class="form-group">
@@ -75,7 +75,7 @@
                                 <input type="password" class="form-control" id="pwd2" name="password2" placeholder="重复密码">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-warning form-control">注册</button>
+                                <button type="button" class="btn btn-warning form-control" id="btn-register">注册</button>
                             </div>
                         </form>
                     </div>
